@@ -9,27 +9,31 @@ $trashVar = mkdir -OutVariable output C:\temporary\
 $trashVar
 
 # Downloading wget & 7-zip binaries to C:\temporary #
-Write-Progress -Activity 'Downloading wget & 7-zip binaries to C:\temporary' -Status "Saving to folder" -PercentComplete 75
+Write-Host "`tDownloading wget & 7-zip binaries to C:\temporary`n" -ForegroundColor Yellow
 $ProgressPreference = "SilentlyContinue"
 Invoke-WebRequest https://eternallybored.org/misc/wget/1.21.4/64/wget.exe -O "C:\temporary\wget.exe"
 Invoke-WebRequest https://www.7-zip.org/a/7zr.exe -O "C:\temporary\7zr.exe"
-Write-Progress -Activity 'Downloading ns3.32-Ubuntu-20.04' -Status 'Downloading'
 
 # Downloading TIMSCDR-Ubuntu-20-04.7z to C:\temporary folder" #
-Write-Host "Download size is 1.82 gb, and the OS will reside in C:\TIMSCDR-Ubuntu-20.04, consuming 7 gb storage space"
-C:\temporary\wget.exe -t 0 -O "C:\temporary\TIMSCDR-Ubuntu-20.04.7z" "https://media.githubusercontent.com/media/Atman-Shastri/WSL_Ubuntu_20.04_with_ns3_all_in_one/main/TIMSCDR-Ubuntu-20.04.7z"
-Write-Host "If Script fails to download the OS, download it from here: https://drive.google.com/file/d/1by4Ou977Wtm0I5OFzQRX1vBx1Fs283re/view?usp=drive_link"
+Write-Host "`n`tDownload size is 1.82 gb, and the OS will reside in C:\TIMSCDR-Ubuntu-20.04, consuming 7 gb storage space" -ForegroundColor Yellow
+Write-Host "`tDownloading the ns3.32-Ubuntu-20.04 from OneDrive`n" -ForegroundColor Yellow
+C:\temporary\wget.exe  -t 0 -O "C:\temporary\TIMSCDR-Ubuntu-20.04.7z" "https://ktokpa.sn.files.1drv.com/y4meXurSB3sCLcGjmCoWxCa2sQkgUtmQkuJ5iAbYwilWi_JCnSDMl3-0N73vDm9PoOgWu5JPzm7vAgBiUKobniW4eDKciHO9c7YMJb2dhPaVUS-h00k4xc5Cfe_8gYK20WvSwlIsofXUtbNdGBITTeNjD7H-8e47JkGlPg7mLIgxwcbw48z7yWZkIi2_KWmYhZ_sjHMAY9pb27nIZZ1deZHZA"
+Write-Host "`n`tIf Script fails to download the OS, download it from here: https://drive.google.com/file/d/1I1rJfOcfIffNtPC5M3Qx-IPVIw5FgYQo/view?usp=drive_link" -ForegroundColor Yellow
 
 # Extracting TIMSCDR-Ubuntu-20.04.7z to the C:\temporary #
+Write-Host "`tExtracting the download to C:\temporary`n" -ForegroundColor Yellow
 C:\temporary\7zr.exe x "C:\temporary\TIMSCDR-Ubuntu-20.04.7z" -o"C:\temporary" -y
 
 
 <# Checking and enabling pre-requisites (WSL and Virtual Machine Platform) #>
+Write-Host "`tEnabling Windows Subsystem Linux`n" -ForegroundColor Yellow
 dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+Write-Host "`tEnabling Virtual Machine Platform`n" -ForegroundColor Yellow
 dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
 
 
 <# Setting up profile in windows Terminal #>
+Write-Host "`tSetting up Ubuntu profile in Windows Terminal`n" -ForegroundColor Yellow
 # Path to the JSON file #
 $jsonFilePath = "C:\Users\$env:USERNAME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
 
@@ -87,7 +91,9 @@ cp C:\Users\$env:USERNAME\Desktop\DELL-G3-wt-og.json C:\Users\$env:USERNAME\AppD
 #>
 
 <# Importing the OS #>
+Write-Host "`tImporting the OS`n" -ForegroundColor Yellow
 wsl --import TIMSCDR-Ubuntu-20.04 C:\TIMSCDR-Ubuntu-20.04 C:\temporary\TIMSCDR-Ubuntu-20.04.tar
 
 <# Cleaning up, removing C:\temporary #>
+Write-Host "`tCleaning up, removing C:\temporary`n" -ForegroundColor Yellow
 Remove-Item -r C:\temporary
