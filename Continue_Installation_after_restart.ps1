@@ -1,17 +1,14 @@
 <# Uninstalling default latest Ubuntu #>
-Write-Host "`tUninstalling default latest Ubuntu`n" -ForegroundColor Yellow
+Write-Host "`tUninstalling default latest Ubuntu if exists`n" -ForegroundColor Yellow
 wsl --unregister Ubuntu
 <# Importing the OS #>
 Write-Host "`tImporting the OS from C:\temporary to C:\TIMSCDR-Ubuntu-20.04`n" -ForegroundColor Yellow
 wsl --import TIMSCDR-Ubuntu-20.04 C:\TIMSCDR-Ubuntu-20.04 C:\temporary\TIMSCDR-Ubuntu-20.04.tar
 
 
-<# Cleaning up, removing C:\temporary #>
-Write-Host "`tCleaning up, moving C:\temporary to recycle bin`n" -ForegroundColor Yellow
-$folderPath = "C:\temporary"
+<# Launching ns-3.32_Ubuntu-20.04 #>
+$choice1 = Read-Host -Prompt "You can delete the C:\temporary folder after launching Ubuntu. Ready to simulate networks? Press y then enter(y/n)"
 
-# Loading the Microsoft.VisualBasic assembly
-Add-Type -AssemblyName Microsoft.VisualBasic
-
-# Moving the folder to the recycle bin
-[Microsoft.VisualBasic.FileIO.FileSystem]::DeleteDirectory($folderPath, [Microsoft.VisualBasic.FileIO.UIOption]::OnlyErrorDialogs, [Microsoft.VisualBasic.FileIO.RecycleOption]::SendToRecycleBin)
+if ($choice1 -eq 'y'){
+wt -p "TIMSCDR-Ubuntu-20.04"
+}

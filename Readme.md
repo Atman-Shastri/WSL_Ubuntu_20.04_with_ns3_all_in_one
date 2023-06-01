@@ -1,7 +1,7 @@
  ## WSL_Ubuntu_20.04_with_ns3_all_in_one 
  ### (includes tracemetrics and default-jdk as well) ###
 #### Automating WSL installation, providing Ubuntu 20.04 with pre-installed programs & dependencies related to networking with linux (MCA Program course 22-24) ####
-#### Tested on a fresh install of Windows 11 Pro 22621.1702 ####
+#### Tested on fresh installs of Windows 11 Pro 22H2 22621.1702 and Windows 10 Home 22H2 19045.2965 ####
 ## Steps: ##
 
 ### 1. Click on code, download zip and extract it (preferably in D: or E: or where folder paths are shorter): ###
