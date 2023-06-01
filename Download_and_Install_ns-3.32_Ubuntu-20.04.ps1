@@ -1,5 +1,5 @@
-    # This script downloads Ubuntu with pre-installed programs related to MCA Program course 22-24 #
-                       # (includes ns3-allinone and tracemetrics) #
+# This script downloads Ubuntu with pre-installed programs related to MCA Program course 22-24 #
+# (includes ns3-allinone and tracemetrics) #
 
 
 <# Downloading TIMSCDR Ubuntu WSL machine #>
