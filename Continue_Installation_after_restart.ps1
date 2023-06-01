@@ -7,8 +7,9 @@ wsl --import TIMSCDR-Ubuntu-20.04 C:\TIMSCDR-Ubuntu-20.04 C:\temporary\TIMSCDR-U
 
 
 <# Launching ns-3.32_Ubuntu-20.04 #>
-$choice1 = Read-Host -Prompt "You can delete the C:\temporary folder after launching Ubuntu. Ready to simulate networks? Press y then enter(y/n)"
-
+Write-Host "`nThe sudo password is mca@123. Refer the readme for additional information" -ForegroundColor Yellow
+Write-Host "`nYou can delete the C:\temporary folder after launching Ubuntu. Ready to simulate networks?" -ForegroundColor Yellow
+$choice1 = Read-Host -Prompt "Press y then enter(y/n)"
 if ($choice1 -eq 'y'){
 wt -p "TIMSCDR-Ubuntu-20.04"
 }
