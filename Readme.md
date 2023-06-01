@@ -1,3 +1,9 @@
+                                                                          WSL_Ubuntu_20.04_with_ns3_all_in_one
+                                                                      (includes tracemetrics and default-jdk as well)
+                        Automating WSL installation, providing Ubuntu 20.04 with pre-installed programs & dependencies related to networking with linux (MCA Program course 22-24)
+
+Steps:
+
 1. Click on code, download zip and extract it (preferably in D: or E: or where folder paths are shorter):
 
 ![Readme 1](https://github.com/Atman-Shastri/WSL_Ubuntu_20.04_with_ns3_all_in_one/assets/126988436/df21ab78-96b0-48b6-b9fb-83afc90f1224)
