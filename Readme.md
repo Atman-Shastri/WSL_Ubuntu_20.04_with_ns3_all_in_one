@@ -1,5 +1,5 @@
 1. Click on code, download zip and extract it (preferably in D: or E: or where folder paths are shorter):
-![image](https://github.com/Atman-Shastri/WSL_Ubuntu_20.04_with_ns3_all_in_one/assets/126988436/339a9ee2-7068-4174-8542-a85a197da2d6)
+
 
 2. Run Powershell as administrator and cd to the directory where the repo folder is downloaded/cloned :
 
