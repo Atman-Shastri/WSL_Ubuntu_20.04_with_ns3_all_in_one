@@ -16,11 +16,14 @@
 
 ### 3. Run this command in Powershell: ###
 
-       powershell.exe -ExecutionPolicy Bypass -File .\Download_and_Install_ns-3.32_Ubuntu-20.04.ps1
+       powershell.exe -ExecutionPolicy Bypass -File .\Download_ns-3.32_Ubuntu-20.04_and_dependencies.ps1
                          
 ![image](https://github.com/Atman-Shastri/WSL_Ubuntu_20.04_with_ns3_all_in_one/assets/126988436/5a40ea0a-f37b-4c23-8d13-861c106f3e1f)
 
+### After restart, open Powershell as administrator,cd to the directory where the repository folder is, and run this command: ###
 
+       powershell.exe -ExecutionPolicy Bypass -File .\Continue_Installation_after_restart.ps1
+              
 - Download size is 1.82 gb, and the OS will reside in C:\TIMSCDR-Ubuntu-20.04, consuming 7 gb storage space
 - The password for the user is the same as students use in lab: "mca@123"
 
