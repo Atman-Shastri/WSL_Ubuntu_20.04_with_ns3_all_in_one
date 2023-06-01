@@ -27,4 +27,7 @@
 - If the script fails to download, alternatively you can download the OS from here:
 - https://drive.google.com/file/d/1by4Ou977Wtm0I5OFzQRX1vBx1Fs283re/view?usp=drive_link
 - Make a folder named `temporary` in C: drive and store the 1.82gb file there before running the Only_Install script
+
+      powershell.exe -ExecutionPolicy Bypass -File .\Only_Install_ns-3.32_Ubuntu-20.04.ps1
+           
 - Mail me at atmanshastri@gmail.com if any issues or queries
