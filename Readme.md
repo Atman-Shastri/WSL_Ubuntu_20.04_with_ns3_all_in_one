@@ -19,7 +19,7 @@ powershell.exe -ExecutionPolicy Bypass -File .\Download_and_Install_ns-3.32_Ubun
 
 
 - Download size is 1.82 gb, and the OS will reside in C:\TIMSCDR-Ubuntu-20.04, consuming 7 gb storage space
-- The password for the OS is the same as students use in lab: "mca@123"
+- The password for the user is the same as students use in lab: "mca@123"
 
 - If the script fails to download, alternatively you can download the OS from here:
 - https://drive.google.com/file/d/1by4Ou977Wtm0I5OFzQRX1vBx1Fs283re/view?usp=drive_link
