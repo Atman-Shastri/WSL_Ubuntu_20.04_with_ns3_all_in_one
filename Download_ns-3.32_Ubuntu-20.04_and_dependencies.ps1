@@ -123,7 +123,7 @@ cp C:\Users\$env:USERNAME\Desktop\DELL-G3-wt-og.json C:\Users\$env:USERNAME\AppD
 Write-Host "`tInstalling WSL`n" -ForegroundColor Yellow
 $choice1 = Read-Host -Prompt "A window will popup for Host Process,choose yes. press y and then enter to continue the script(y/n)"
 if ($choice1 -eq 'y'){
-Write-Host "`nContinuing Installing WSL..." -ForegroundColor Yellow
+Write-Host "`nContinuing Installation of WSL..." -ForegroundColor Yellow
 wsl --install -n
 Write-Host "`nThe system will restart now." -ForegroundColor Yellow
 Write-Host "`nRun the Continue_Installation_after_restart.ps1 after restart in the same manner as you ran this script" -ForegroundColor Yellow

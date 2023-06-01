@@ -7,7 +7,7 @@
 
 # Downloading wget & 7-zip binaries to C:\temporary #
 Write-Host "`tThis script assumes you already have TIMSCDR-Ubuntu-20.04.7z in C:\temporary folder`n" -ForegroundColor Yellow
-$choice = Read-Host -Prompt "Are you sure you want to continue? (y/n)"
+$choice = Read-Host -Prompt "Continue? (y/n)"
 if ($choice -eq 'y') {
     Write-Host "`nContinuing..." -ForegroundColor Yellow
     Write-Host "`tDownloading wget & 7-zip binaries to C:\temporary`n" -ForegroundColor Yellow
@@ -87,12 +87,19 @@ cp C:\Users\$env:USERNAME\Desktop\DELL-G3-wt-og.json C:\Users\$env:USERNAME\AppD
 #>
 
     <# Importing the OS #>
-    Write-Host "`tImporting the OS`n" -ForegroundColor Yellow
-    wsl --import TIMSCDR-Ubuntu-20.04 C:\TIMSCDR-Ubuntu-20.04 C:\temporary\TIMSCDR-Ubuntu-20.04.tar
-
-    <# Cleaning up, removing C:\temporary #>
-    Write-Host "`tCleaning up, removing C:\temporary`n" -ForegroundColor Yellow
-    Remove-Item -r C:\temporary
+Write-Host "`tInstalling WSL`n" -ForegroundColor Yellow
+$choice1 = Read-Host -Prompt "A window will popup for Host Process,choose yes. press y and then enter to continue the script(y/n)"
+if ($choice1 -eq 'y'){
+Write-Host "`nContinuing Installation of WSL..." -ForegroundColor Yellow
+wsl --install -n
+Write-Host "`nThe system will restart now." -ForegroundColor Yellow
+Write-Host "`nRun the Continue_Installation_after_restart.ps1 after restart in the same manner as you ran this script" -ForegroundColor Yellow
+Write-Host "`nRefer to 2nd command in readme file if in doubt" -ForegroundColor Yellow
+$choice2 = Read-Host -Prompt "Press y then enter to restart(y/n)"
+ if($choice2 -eq 'y'){
+        restart-computer
+     }
+    }
 }
 else {
     Write-Host "`nScript Terminated before completion." -ForegroundColor Yellow
