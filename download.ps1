@@ -1,4 +1,4 @@
-# This script downloads Ubuntu with pre-installed programs related to MCA Program course 22-24 #
+    # This script downloads Ubuntu with pre-installed programs related to MCA Program course 22-24 #
                        # (includes ns3-allinone and tracemetrics) #
 
                         <# Downloading TIMSCDR Ubuntu WSL machine #>
@@ -6,71 +6,30 @@
 # Creating script's working directory#        
 $trashVar = mkdir -OutVariable output C:\temporary\
 $trashVar
-# Downloading wget #
-Write-Progress -Activity 'Downloading wget' -Status "Saving to folder" -PercentComplete 75
+# Downloading wget & 7-zip binaries to C:\temporary #
+Write-Progress -Activity 'Downloading wget & 7-zip binaries to C:\temporary' -Status "Saving to folder" -PercentComplete 75
 $ProgressPreference = "SilentlyContinue"
 Invoke-WebRequest https://eternallybored.org/misc/wget/1.21.4/64/wget.exe -O "C:\temporary\wget.exe"
+Invoke-WebRequest https://www.7-zip.org/a/7zr.exe -O "C:\temporary\7zr.exe"
 
-
-# Setting protocol to TLS version 1.2 #
-#[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 Write-Progress -Activity 'Downloading ns3.32-Ubuntu-20.04' -Status 'Downloading'
-# Downloading TIMSCDR-Ubuntu-20-04.tar to C:\temporary folder" #
+# Downloading TIMSCDR-Ubuntu-20-04.7z to C:\temporary folder" #
 
-C:\temporary\wget.exe -t 0 -O "C:\temporary\TIMSCDR-Ubuntu-20.04.tar" "https://drive.google.com/uc?export=download&confirm=&id=1by4Ou977Wtm0I5OFzQRX1vBx1Fs283re"
+Write-Host "Download size is 1.82 gb, and the OS will reside in C:\TIMSCDR-Ubuntu-20.04, consuming 7 gb storage space"
 
-Write-Host "If Script fails to download, download it from here: https://drive.google.com/file/d/1by4Ou977Wtm0I5OFzQRX1vBx1Fs283re/view?usp=drive_link"
+C:\temporary\wget.exe -t 0 -O "C:\temporary\TIMSCDR-Ubuntu-20.04.7z" "https://media.githubusercontent.com/media/Atman-Shastri/WSL_Ubuntu_20.04_with_ns3_all_in_one/main/TIMSCDR-Ubuntu-20.04.7z"
 
-Write-Progress -Activity 'Downloading ns3.32-Ubuntu-20.04' -Status 'Download Complete' -Completed
-
-<# Extract the downloaded file
-#Expand-Archive -LiteralPath "C:\temporary\Ubuntu_ns_all_in_one.tar" -DestinationPath "C:\temporary\" -Force
-
-# Clean up - delete the downloaded file
-#Remove-Item "C:\temporary\Ubuntu_ns_all_in_one.tar"
-<#
-### Installing 7-zip ###
-winget install -e --id 7zip.7zip
+Write-Host "If Script fails to download the OS, download it from here: https://drive.google.com/file/d/1by4Ou977Wtm0I5OFzQRX1vBx1Fs283re/view?usp=drive_link"
 
 ### Extracting TIMSCDR-Ubuntu-20.04.7z to the C:\temporary ###
-7z.exe x "C:\temporary\TIMSCDR-Ubuntu-20.04.7z" -o"C:\temporary" -y
+C:\temporary\7zr.exe x "C:\temporary\TIMSCDR-Ubuntu-20.04.7z" -o"C:\temporary" -y
+
+                                    <# Checking and enabling pre-requisites #>
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-<#
-### Downloading Ubuntu with pre-installed MCA Program course related programs(includes ns3-allinone and tracemetrics) ###
-
-# Setting protocol to TLS version 1.2
-[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-
-# Downloading TIMSCDR-Ubuntu-20-04.tar to C:\temporary folder"
-#mkdir C:\temporary\
-#$ProgressPreference = 'SilentlyContinue'
-#Invoke-WebRequest -Uri "https://drive.google.com/uc?export=download&id=1by4Ou977Wtm0I5OFzQRX1vBx1Fs283re" -OutFile "_tmp.txt" -SessionVariable googleDriveSession
-#$searchString = Select-String -Path "_tmp.txt" -Pattern "confirm=.*&amp;id="
-#$confirmCode = $searchString.Matches.Value -replace "confirm=|&amp;id="
-#Remove-Item "_tmp.txt"
-#Invoke-WebRequest -Uri "https://drive.google.com/uc?export=download&confirm=${confirmCode}&id=1by4Ou977Wtm0I5OFzQRX1vBx1Fs283re" -OutFile "C:\temporary\TIMSCDR-Ubuntu-20.04.tar" -WebSession $googleDriveSession
-
-# Extract the downloaded file
-#Expand-Archive -LiteralPath "C:\temporary\Ubuntu_ns_all_in_one.tar" -DestinationPath "C:\temporary\" -Force
-
-# Clean up - delete the downloaded file
-#Remove-Item "C:\temporary\Ubuntu_ns_all_in_one.tar"
-
-###Setting up profile in windows Terminal###
-# Path to the JSON file
+                                  <# Setting up profile in windows Terminal #>
+<# Path to the JSON file
 $jsonFilePath = "C:\Users\$env:USERNAME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
 
 
@@ -109,8 +68,6 @@ $colorScheme = @{
 
 # Read the JSON file contents
 $jsonContent = Get-Content -Path $jsonFilePath | ConvertFrom-Json
-
-
 
 #appending color scheme
 $jsonContent.schemes += $colorScheme
