@@ -8,6 +8,21 @@
 $trashVar = mkdir -OutVariable output C:\temporary\
 $trashVar
 
+# Testing Windows Terminal for Profile Creation #
+Write-Host "`tTesting Windows Terminal for Profile Creation`n" -ForegroundColor Yellow
+# Starting Windows Terminal
+Start-Process wt
+
+# Waiting for 2 seconds
+Start-Sleep -Seconds 2
+
+# Finding the process ID for Windows Terminal
+$wtProcess = Get-Process | Where-Object { $_.Path -like '*WindowsTerminal.exe' }
+$wtProcessId = $wtProcess.Id
+
+# Stopping Windows Terminal using the process ID
+Stop-Process -Id $wtProcessId
+
 # Downloading wget & 7-zip binaries to C:\temporary #
 Write-Host "`tDownloading wget & 7-zip binaries to C:\temporary`n" -ForegroundColor Yellow
 $ProgressPreference = "SilentlyContinue"
@@ -92,9 +107,20 @@ cp C:\Users\$env:USERNAME\Desktop\DELL-G3-wt-og.json C:\Users\$env:USERNAME\AppD
 #>
 
 <# Importing the OS #>
+Write-Host "`tInstalling WSL`n" -ForegroundColor Yellow
+wsl --install -n
+Write-Host "`tUninstalling default latest Ubuntu`n" -ForegroundColor Yellow
+wsl --unregister Ubuntu
 Write-Host "`tImporting the OS`n" -ForegroundColor Yellow
 wsl --import TIMSCDR-Ubuntu-20.04 C:\TIMSCDR-Ubuntu-20.04 C:\temporary\TIMSCDR-Ubuntu-20.04.tar
 
+
 <# Cleaning up, removing C:\temporary #>
-Write-Host "`tCleaning up, removing C:\temporary`n" -ForegroundColor Yellow
-Remove-Item -r C:\temporary
+Write-Host "`tCleaning up, moving C:\temporary to recycle bin`n" -ForegroundColor Yellow
+$folderPath = "C:\temporary"
+
+# Loading the Microsoft.VisualBasic assembly
+Add-Type -AssemblyName Microsoft.VisualBasic
+
+# Moving the folder to the recycle bin
+[Microsoft.VisualBasic.FileIO.FileSystem]::DeleteDirectory($folderPath, [Microsoft.VisualBasic.FileIO.UIOption]::OnlyErrorDialogs, [Microsoft.VisualBasic.FileIO.RecycleOption]::SendToRecycleBin)
