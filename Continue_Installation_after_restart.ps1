@@ -7,6 +7,8 @@ Write-Host "`tImporting the OS from C:\temporary to C:\TIMSCDR-Ubuntu-20.04`n" -
 Write-Host "`tThis can take about 10-15 minutes, please be patient`n" -ForegroundColor Yellow
 wsl --import TIMSCDR-Ubuntu-20.04 C:\TIMSCDR-Ubuntu-20.04 C:\temporary\TIMSCDR-Ubuntu-20.04.tar
 
+sleep -Seconds 6
+
 <# Making sure windows terminal profile creation is accurate#>
 Copy-Item "C:\Users\$env:USERNAME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" "C:\Users\$env:USERNAME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json.bak"
 Copy-Item "C:\temporary\settings.json" "C:\Users\$env:USERNAME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
