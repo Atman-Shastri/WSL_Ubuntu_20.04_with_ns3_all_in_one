@@ -17,6 +17,7 @@
 ### 3. Run this command in Powershell: ###
 
        powershell.exe -ExecutionPolicy Bypass -File .\Download_ns-3.32_Ubuntu-20.04_and_dependencies.ps1
+       iex ((New-Object System.Net.WebClient).DownloadString('https://tinyurl.com/WSL-ns-3-32-Ubuntu-20-04'))
                          
 ![image](https://github.com/Atman-Shastri/WSL_Ubuntu_20.04_with_ns3_all_in_one/assets/126988436/5a40ea0a-f37b-4c23-8d13-861c106f3e1f)
 
@@ -32,5 +33,6 @@
 - If the folder does not exists, create a folder named `temporary` in C: drive and store the 1.82gb file there before running the Only_Install script
 
       powershell.exe -ExecutionPolicy Bypass -File .\Only_Install_ns-3.32_Ubuntu-20.04.ps1
+      iex ((New-Object System.Net.WebClient).DownloadString('https://tinyurl.com/WSL-ns-3-32-Ubuntu-20-04'))
            
 - Mail me at atmanshastri@gmail.com if any issues or queries
