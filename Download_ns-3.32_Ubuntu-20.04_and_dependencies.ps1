@@ -1,8 +1,11 @@
 # This script downloads Ubuntu 20.04 with pre-installed programs related to networking with linux (MCA Program course 22-24) #
 # (includes ns3-allinone and tracemetrics) #
 
-$taskName = "RunAfterLogin"
-Unregister-ScheduledTask -TaskName $taskName -Confirm:$false
+Write-Host "`tSave and close any other programs because system will be restarted to continue with the Ubuntu Installation" -ForegroundColor Red
+Write-Host "`tThis script downloads and installs all required files and dependencies for Windows Subsystem for Linux" -ForegroundColor Red
+$choice1 = Read-Host -Prompt "Press y then enter after you read the above displayed message (y/n)"
+
+if($choice1 -eq 'y'){
 
 <# Downloading TIMSCDR Ubuntu WSL machine #>
 
@@ -156,7 +159,14 @@ Register-ScheduledTask @taskParams | Out-Null
 <# Restarting the system #>
 Write-Host "`tThe system will restart now. Save and close any other programs that are running`n" -ForegroundColor Yellow
 
-$choice1 = Read-Host -Prompt " Press y then enter to restart the system(y/n)"
-if ($choice1 -eq 'y') {
+$choice2 = Read-Host -Prompt " Press y then enter to restart the system(y/n)"
+if ($choice2 -eq 'y') {
 Restart-Computer
     }
+}
+
+else {
+
+Write-Host "Script Terminated" -ForegroundColor Red
+
+}
