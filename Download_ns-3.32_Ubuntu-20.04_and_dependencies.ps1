@@ -1,6 +1,8 @@
 # This script downloads Ubuntu 20.04 with pre-installed programs related to networking with linux (MCA Program course 22-24) #
 # (includes ns3-allinone and tracemetrics) #
 
+$taskName = "RunAfterLogin"
+Unregister-ScheduledTask -TaskName $taskName -Confirm:$false
 
 <# Downloading TIMSCDR Ubuntu WSL machine #>
 
