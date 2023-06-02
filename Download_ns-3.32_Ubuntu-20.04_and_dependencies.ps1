@@ -25,6 +25,7 @@ Copy-Item "C:\temporary\UIXAML\tools\AppX\x64\Release\Microsoft.UI.Xaml.2.7.appx
 Add-AppPackage "C:\temporary\UIXAML.appx"
 Add-AppPackage "C:\temporary\VCLibs.appx"
 Add-AppxPackage "C:\temporary\terminal.msixbundle"
+Add-AppPackage "C:\temporary\winget.msixbundle"
 
 # Testing Windows Terminal for Profile Creation #
 Write-Host "`tTesting Windows Terminal for Profile Creation`n" -ForegroundColor Yellow
