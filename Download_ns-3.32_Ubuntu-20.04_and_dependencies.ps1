@@ -140,10 +140,10 @@ $domain = $currentUser.Name.Split("\")[0]
 $username = $currentUser.Name.Split("\")[1]
 
 # Define the script command to run after login
-$command = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe iex ((New-Object System.Net.WebClient).DownloadString('https://tinyurl.com/WSL-ns-3-32-continued'))"
-
+$command = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
+$arguments = "iex ((New-Object System.Net.WebClient).DownloadString('https://tinyurl.com/WSL-ns-3-32-continued'))"
 # Create a scheduled task action to run the command
-$action = New-ScheduledTaskAction -Execute $command
+$action = New-ScheduledTaskAction -Execute $command -Argument $arguments
 
 # Create a trigger for the scheduled task (logon event)
 $trigger = New-ScheduledTaskTrigger -AtLogOn
