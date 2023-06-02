@@ -15,7 +15,33 @@ if ($choice -eq 'y') {
     Invoke-WebRequest https://eternallybored.org/misc/wget/1.21.4/64/wget.exe -O "C:\temporary\wget.exe"
     Invoke-WebRequest https://www.7-zip.org/a/7zr.exe -O "C:\temporary\7zr.exe"
 
-
+# Downloading and installing Windows Terminal if it does not exist # 
+ Write-Host "`tDownloading and installing Windows Terminal if it does not exist`n" -ForegroundColor Yellow 
+ C:\temporary\wget.exe -t 0 -O "C:\temporary\terminal.msixbundle" "https://github.com/microsoft/terminal/releases/download/v1.17.11461.0/Microsoft.WindowsTerminal_1.17.11461.0_8wekyb3d8bbwe.msixbundle" 
+ C:\temporary\wget.exe -t 0 -O "C:\temporary\VCLibs.appx" "https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx" 
+ C:\temporary\wget.exe -t 0 -O "C:\temporary\UIXAML.zip" "https://www.nuget.org/api/v2/package/Microsoft.UI.Xaml/2.7.3" 
+ Expand-Archive "C:\temporary\UIXAML.zip" -DestinationPath "C:\temporary\UIXAML\" 
+ Copy-Item "C:\temporary\UIXAML\tools\AppX\x64\Release\Microsoft.UI.Xaml.2.7.appx" "C:\temporary\UIXAML.appx" 
+ Add-AppPackage "C:\temporary\UIXAML.appx" 
+ Add-AppPackage "C:\temporary\VCLibs.appx" 
+ Add-AppxPackage "C:\temporary\terminal.msixbundle" 
+  
+ # Testing Windows Terminal for Profile Creation # 
+ Write-Host "`tTesting Windows Terminal for Profile Creation`n" -ForegroundColor Yellow 
+ # Starting Windows Terminal 
+ Start-Process wt 
+  
+ # Waiting for 2 seconds 
+ Start-Sleep -Seconds 2 
+  
+ # Finding the process ID for Windows Terminal 
+ $wtProcess = Get-Process | Where-Object { $_.Path -like '*WindowsTerminal.exe' } 
+ $wtProcessId = $wtProcess.Id 
+  
+ # Stopping Windows Terminal using the process ID 
+ Stop-Process -Id $wtProcessId 
+  
+ 
     # Extracting TIMSCDR-Ubuntu-20.04.7z to the C:\temporary #
     Write-Host "`tExtracting the download to C:\temporary`n" -ForegroundColor Yellow
     C:\temporary\7zr.exe x "C:\temporary\TIMSCDR-Ubuntu-20.04.7z" -o"C:\temporary" -y
