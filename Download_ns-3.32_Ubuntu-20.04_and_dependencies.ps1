@@ -1,8 +1,8 @@
 # This script downloads Ubuntu 20.04 with pre-installed programs related to networking with linux (MCA Program course 22-24) #
 # (includes ns3-allinone and tracemetrics) #
-
-Write-Host "`tSave and close any other programs because system will be restarted to continue with the Ubuntu Installation" -ForegroundColor Red
-Write-Host "`tThis script downloads and installs all required files and dependencies for Windows Subsystem for Linux" -ForegroundColor Red
+Write-Host "`t!!!  READ THIS FIRST !!!" -ForegroundColor Red -BackgroundColor White
+Write-Host "`tSave and close any other programs because system will be restarted to continue with the Ubuntu Installation" -ForegroundColor Red -BackgroundColor White
+Write-Host "`tThis script downloads and installs all required files and dependencies for Windows Subsystem for Linux" -ForegroundColor Red -BackgroundColor White
 $choice1 = Read-Host -Prompt "Press y then enter after you read the above displayed message (y/n)"
 
 if($choice1 -eq 'y'){
