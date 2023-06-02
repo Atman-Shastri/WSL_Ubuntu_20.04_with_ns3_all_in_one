@@ -124,18 +124,37 @@ cp C:\Users\$env:USERNAME\Desktop\DELL-G3-wt-og.json C:\Users\$env:USERNAME\AppD
 <# Installing WSL #>
 Write-Host "`tInstalling WSL`n" -ForegroundColor Yellow
 winget install --id 9P9TQF7MRM4R --accept-package-agreements
-<# Importing the OS #>
-Write-Host "`tImporting the OS from C:\temporary to C:\TIMSCDR-Ubuntu-20.04`n" -ForegroundColor Yellow
-wsl --import TIMSCDR-Ubuntu-20.04 C:\TIMSCDR-Ubuntu-20.04 C:\temporary\TIMSCDR-Ubuntu-20.04.tar
 
-<# Making sure windows terminal profile creation is accurate#>
-Copy-Item "C:\Users\$env:USERNAME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" "C:\Users\$env:USERNAME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json.bak"
-Copy-Item ./settings.json "C:\Users\$env:USERNAME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+<# Creating a scheduled task to continue the script #>
+# Get the current user's domain and username
+$currentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent()
+$domain = $currentUser.Name.Split("\")[0]
+$username = $currentUser.Name.Split("\")[1]
 
-<# Launching ns-3.32_Ubuntu-20.04 #>
-Write-Host "`nThe sudo password is mca@123. Refer the readme for additional information" -ForegroundColor Yellow
-Write-Host "`nYou can delete the C:\temporary folder after launching Ubuntu." -ForegroundColor Yellow
-$choice1 = Read-Host -Prompt " Ready to simulate networks? Press y then enter(y/n)"
+# Define the script command to run after login
+$command = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe iex ((New-Object System.Net.WebClient).DownloadString('https://tinyurl.com/WSL-ns-3-32-continued'))"
+
+# Create a scheduled task action to run the command
+$action = New-ScheduledTaskAction -Execute $command
+
+# Create a trigger for the scheduled task (logon event)
+$trigger = New-ScheduledTaskTrigger -AtLogOn
+
+# Create the scheduled task
+$taskParams = @{
+    TaskName = "RunAfterLogin"
+    Action = $action
+    Trigger = $trigger
+    User = "$domain\$username"  
+    RunLevel = "Highest"
+}
+
+Register-ScheduledTask @taskParams | Out-Null
+
+<# Restarting the system #>
+Write-Host "`tThe system will restart now. Save and close any other programs that are running`n" -ForegroundColor Yellow
+
+$choice1 = Read-Host -Prompt " Press y then enter to restart the system(y/n)"
 if ($choice1 -eq 'y') {
-wt -p "TIMSCDR-Ubuntu-20.04"
+Restart-Computer
     }

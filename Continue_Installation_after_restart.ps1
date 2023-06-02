@@ -1,6 +1,7 @@
-<# Uninstalling default latest Ubuntu #>
-Write-Host "`tUninstalling default latest Ubuntu if exists`n" -ForegroundColor Yellow
-wsl --unregister Ubuntu
+
+$taskName = "RunAfterLogin"
+Unregister-ScheduledTask -TaskName $taskName -Confirm:$false
+
 <# Importing the OS #>
 Write-Host "`tImporting the OS from C:\temporary to C:\TIMSCDR-Ubuntu-20.04`n" -ForegroundColor Yellow
 wsl --import TIMSCDR-Ubuntu-20.04 C:\TIMSCDR-Ubuntu-20.04 C:\temporary\TIMSCDR-Ubuntu-20.04.tar
