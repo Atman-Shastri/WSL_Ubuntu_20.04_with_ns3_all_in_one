@@ -51,11 +51,11 @@ Stop-Process -Id $wtProcessId
 
 Write-Host "`n`tDownload size is 1.82 gb, and the OS will reside in C:\TIMSCDR-Ubuntu-20.04, consuming 7 gb storage space" -ForegroundColor Yellow
 Write-Host "`n`tYou can download it manually from here in case the script fails to download the OS" -ForegroundColor Yellow
-Write-Host "`n`thttps://drive.google.com/file/d/1I1rJfOcfIffNtPC5M3Qx-IPVIw5FgYQo/view?usp=drive_link" -ForegroundColor Yellow
+Write-Host "`n`thttps://drive.google.com/file/d/1I1rJfOcfIffNtPC5M3Qx-IPVIw5FgYQo/view?usp=drive_link`n" -ForegroundColor Yellow
 
 
 # Downloading TIMSCDR-Ubuntu-20-04.7z to C:\temporary folder" #
-Write-Host "`t`nDownloading the ns3.32-Ubuntu-20.04 from OneDrive`n" -ForegroundColor Yellow
+Write-Host "`tDownloading the ns3.32-Ubuntu-20.04 from OneDrive`n" -ForegroundColor Yellow
 C:\temporary\wget.exe  -t 0 -O "C:\temporary\TIMSCDR-Ubuntu-20.04.7z" "https://ktokpa.sn.files.1drv.com/y4meXurSB3sCLcGjmCoWxCa2sQkgUtmQkuJ5iAbYwilWi_JCnSDMl3-0N73vDm9PoOgWu5JPzm7vAgBiUKobniW4eDKciHO9c7YMJb2dhPaVUS-h00k4xc5Cfe_8gYK20WvSwlIsofXUtbNdGBITTeNjD7H-8e47JkGlPg7mLIgxwcbw48z7yWZkIi2_KWmYhZ_sjHMAY9pb27nIZZ1deZHZA"
 
 # Extracting TIMSCDR-Ubuntu-20.04.7z to the C:\temporary #
