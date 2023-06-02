@@ -17,6 +17,7 @@ if ($choice -eq 'y') {
 
 # Downloading and installing Windows Terminal if it does not exist # 
  Write-Host "`tDownloading and installing Windows Terminal if it does not exist`n" -ForegroundColor Yellow 
+C:\temporary\wget.exe -t 0 -O "C:\temporary\winget.msixbundle" "https://github.com/microsoft/winget-cli/releases/download/v1.4.11071/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
  C:\temporary\wget.exe -t 0 -O "C:\temporary\terminal.msixbundle" "https://github.com/microsoft/terminal/releases/download/v1.17.11461.0/Microsoft.WindowsTerminal_1.17.11461.0_8wekyb3d8bbwe.msixbundle" 
  C:\temporary\wget.exe -t 0 -O "C:\temporary\VCLibs.appx" "https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx" 
  C:\temporary\wget.exe -t 0 -O "C:\temporary\UIXAML.zip" "https://www.nuget.org/api/v2/package/Microsoft.UI.Xaml/2.7.3" 
@@ -25,6 +26,7 @@ if ($choice -eq 'y') {
  Add-AppPackage "C:\temporary\UIXAML.appx" 
  Add-AppPackage "C:\temporary\VCLibs.appx" 
  Add-AppxPackage "C:\temporary\terminal.msixbundle" 
+Add-AppPackage "C:\temporary\winget.msixbundle"
   
  # Testing Windows Terminal for Profile Creation # 
  Write-Host "`tTesting Windows Terminal for Profile Creation`n" -ForegroundColor Yellow 
