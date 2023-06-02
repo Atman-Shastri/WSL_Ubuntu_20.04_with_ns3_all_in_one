@@ -3,7 +3,7 @@
 #### Automating WSL installation, providing Ubuntu 20.04 with pre-installed programs & dependencies related to networking with linux (MCA Program course 22-24) ####
 #### Tested on fresh installs of Windows 11 Pro 22H2 22621.1702 and Windows 10 Home 22H2 19045.2965 ####
 ## Steps: ##
-
+ 
 ### 1. Run Powershell as administrator and run this command : ###
 
     iex ((New-Object System.Net.WebClient).DownloadString('https://tinyurl.com/WSL-ns-3-32-Ubuntu-20-04'))
