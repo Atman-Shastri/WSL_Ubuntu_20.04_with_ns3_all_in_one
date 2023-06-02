@@ -16,6 +16,7 @@ Invoke-WebRequest https://www.7-zip.org/a/7zr.exe -O "C:\temporary\7zr.exe"
 
 # Downloading and installing Windows Terminal if it does not exist #
 Write-Host "`tDownloading and installing Windows Terminal if it does not exist`n" -ForegroundColor Yellow
+C:\temporary\wget.exe -t 0 -O "C:\temporary\winget.msixbundle" "https://github.com/microsoft/winget-cli/releases/download/v1.4.11071/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
 C:\temporary\wget.exe -t 0 -O "C:\temporary\terminal.msixbundle" "https://github.com/microsoft/terminal/releases/download/v1.17.11461.0/Microsoft.WindowsTerminal_1.17.11461.0_8wekyb3d8bbwe.msixbundle"
 C:\temporary\wget.exe -t 0 -O "C:\temporary\VCLibs.appx" "https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx"
 C:\temporary\wget.exe -t 0 -O "C:\temporary\UIXAML.zip" "https://www.nuget.org/api/v2/package/Microsoft.UI.Xaml/2.7.3"
