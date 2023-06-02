@@ -10,7 +10,7 @@
 
 ![readme 3](https://github.com/Atman-Shastri/WSL_Ubuntu_20.04_with_ns3_all_in_one/assets/126988436/2ec9593a-c447-43b1-92a6-1ac1336b0c5a)
                          
-![image](https://github.com/Atman-Shastri/WSL_Ubuntu_20.04_with_ns3_all_in_one/assets/126988436/5a40ea0a-f37b-4c23-8d13-861c106f3e1f)
+![image](https://github.com/Atman-Shastri/WSL_Ubuntu_20.04_with_ns3_all_in_one/assets/126988436/839a5cf2-2210-42dc-b60c-3c00c1e36765)
 
 
               
