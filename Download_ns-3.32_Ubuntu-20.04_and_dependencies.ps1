@@ -24,6 +24,8 @@ C:\temporary\wget.exe -t 0 -O "C:\temporary\winget.msixbundle" "https://github.c
 C:\temporary\wget.exe -t 0 -O "C:\temporary\terminal.msixbundle" "https://github.com/microsoft/terminal/releases/download/v1.17.11461.0/Microsoft.WindowsTerminal_1.17.11461.0_8wekyb3d8bbwe.msixbundle"
 C:\temporary\wget.exe -t 0 -O "C:\temporary\VCLibs.appx" "https://aka.ms/Microsoft.VCLibs.x64.14.00.Desktop.appx"
 C:\temporary\wget.exe -t 0 -O "C:\temporary\UIXAML.zip" "https://www.nuget.org/api/v2/package/Microsoft.UI.Xaml/2.7.3"
+# Downloading settings.json for Windows terminal #
+C:\temporary\wget.exe -t 0 -O "C:\temporary\settings.json" "https://raw.githubusercontent.com/Atman-Shastri/WSL_Ubuntu_20.04_with_ns3_all_in_one/main/settings.json"
 Expand-Archive "C:\temporary\UIXAML.zip" -DestinationPath "C:\temporary\UIXAML\"
 Copy-Item "C:\temporary\UIXAML\tools\AppX\x64\Release\Microsoft.UI.Xaml.2.7.appx" "C:\temporary\UIXAML.appx"
 Add-AppPackage "C:\temporary\UIXAML.appx"
@@ -45,6 +47,7 @@ $wtProcessId = $wtProcess.Id
 
 # Stopping Windows Terminal using the process ID
 Stop-Process -Id $wtProcessId
+
 
 Write-Host "`n`tDownload size is 1.82 gb, and the OS will reside in C:\TIMSCDR-Ubuntu-20.04, consuming 7 gb storage space" -ForegroundColor Yellow
 Write-Host "`n`tYou can download it manually from here in case the script fails to download the OS" -ForegroundColor Yellow

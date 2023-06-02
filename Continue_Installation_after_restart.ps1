@@ -8,7 +8,7 @@ wsl --import TIMSCDR-Ubuntu-20.04 C:\TIMSCDR-Ubuntu-20.04 C:\temporary\TIMSCDR-U
 
 <# Making sure windows terminal profile creation is accurate#>
 Copy-Item "C:\Users\$env:USERNAME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" "C:\Users\$env:USERNAME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json.bak"
-Copy-Item ./settings.json "C:\Users\$env:USERNAME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
+Copy-Item "C:\temporary\settings.json" "C:\Users\$env:USERNAME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
 
 <# Launching ns-3.32_Ubuntu-20.04 #>
 Write-Host "`nThe sudo password is mca@123. Refer the readme for additional information" -ForegroundColor Yellow
