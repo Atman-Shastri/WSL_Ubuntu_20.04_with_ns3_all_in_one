@@ -1,4 +1,4 @@
-﻿# This script downloads Ubuntu 20.04 with pre-installed programs related to networking with linux (MCA Program course 22-24) #
+# This script downloads Ubuntu 20.04 with pre-installed programs related to networking with linux (MCA Program course 22-24) #
 # (includes ns3-allinone and tracemetrics) #
 
 

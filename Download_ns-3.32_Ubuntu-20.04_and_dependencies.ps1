@@ -46,8 +46,7 @@ Write-Host "`n`tDownload size is 1.82 gb, and the OS will reside in C:\TIMSCDR-U
 Write-Host "`n`tYou can download it manually from here in case the script fails to download the OS`n" -ForegroundColor Yellow
 Write-Host "`n`thttps://drive.google.com/file/d/1I1rJfOcfIffNtPC5M3Qx-IPVIw5FgYQo/view?usp=drive_link" -ForegroundColor Yellow
 
-$choice = Read-Host -Prompt " Continue Downloading ?(y/n)"
-if($choice -eq 'y'){
+
 # Downloading TIMSCDR-Ubuntu-20-04.7z to C:\temporary folder" #
 Write-Host "`tDownloading the ns3.32-Ubuntu-20.04 from OneDrive`n" -ForegroundColor Yellow
 C:\temporary\wget.exe  -t 0 -O "C:\temporary\TIMSCDR-Ubuntu-20.04.7z" "https://ktokpa.sn.files.1drv.com/y4meXurSB3sCLcGjmCoWxCa2sQkgUtmQkuJ5iAbYwilWi_JCnSDMl3-0N73vDm9PoOgWu5JPzm7vAgBiUKobniW4eDKciHO9c7YMJb2dhPaVUS-h00k4xc5Cfe_8gYK20WvSwlIsofXUtbNdGBITTeNjD7H-8e47JkGlPg7mLIgxwcbw48z7yWZkIi2_KWmYhZ_sjHMAY9pb27nIZZ1deZHZA"
@@ -141,96 +140,3 @@ $choice1 = Read-Host -Prompt " Ready to simulate networks? Press y then enter(y/
 if ($choice1 -eq 'y') {
 wt -p "TIMSCDR-Ubuntu-20.04"
     }
-}
-
-else {
-# Extracting TIMSCDR-Ubuntu-20.04.7z to the C:\temporary #
-Write-Host "`tExtracting the download to C:\temporary`n" -ForegroundColor Yellow
-C:\temporary\7zr.exe x "C:\temporary\TIMSCDR-Ubuntu-20.04.7z" -o"C:\temporary" -y
-
-
-<# Checking and enabling pre-requisites (WSL and Virtual Machine Platform) #>
-Write-Host "`tEnabling Windows Subsystem Linux`n" -ForegroundColor Yellow
-dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
-Write-Host "`tEnabling Virtual Machine Platform`n" -ForegroundColor Yellow
-dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
-
-
-<# Setting up profile in windows Terminal #
-ignore these lines, its for testing purposes
-Write-Host "`tSetting up Ubuntu profile in Windows Terminal`n" -ForegroundColor Yellow
-# Path to the JSON file #
-$jsonFilePath = "C:\Users\$env:USERNAME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
-
-
-# Text to append
-$newProfile = @{
-    "name"              = "TIMSCDR-Ubuntu-20.04";
-    "colorScheme"       = "Ubuntu-ColorScheme";
-    "commandline"       = "wsl.exe -d TIMSCDR-Ubuntu-20.04";
-    "startingDirectory" = "~";
-    "icon"              = "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png";
-}
-
-$colorScheme = @{
-    "background"          = "#300A24";
-    "black"               = "#171421";
-    "blue"                = "#0037DA";
-    "brightBlack"         = "#767676";
-    "brightBlue"          = "#08458F";
-    "brightCyan"          = "#2C9FB3";
-    "brightGreen"         = "#26A269";
-    "brightPurple"        = "#A347BA";
-    "brightRed"           = "#C01C28";
-    "brightWhite"         = "#F2F2F2";
-    "brightYellow"        = "#A2734C";
-    "cursorColor"         = "#FFFFFF";
-    "cyan"                = "#3A96DD";
-    "foreground"          = "#FFFFFF";
-    "green"               = "#26A269";
-    "name"                = "Ubuntu-ColorScheme";
-    "purple"              = "#881798";
-    "red"                 = "#C21A23";
-    "selectionBackground" = "#FFFFFF";
-    "white"               = "#CCCCCC";
-    "yellow"              = "#A2734C";
-}
-
-# Read the JSON file contents
-$jsonContent = Get-Content -Path $jsonFilePath | ConvertFrom-Json
-
-#appending color ubuntu scheme
-$jsonContent.schemes += $colorScheme
-
-#appending new ubuntu profile
-$jsonContent.profiles.list += $newProfile
-
-# Converting the updated JSON content back to a string
-$jsonString = $jsonContent | ConvertTo-Json -Depth 10
-
-# Writing the updated JSON string back to the file
-$jsonString | Out-File -FilePath $jsonFilePath -Encoding utf8 -Force
-
-<# 
-cp C:\Users\$env:USERNAME\Desktop\DELL-G3-wt-og.json C:\Users\$env:USERNAME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json
-#>
-
-<# Installing WSL #>
-Write-Host "`tInstalling WSL`n" -ForegroundColor Yellow
-winget install --id 9P9TQF7MRM4R --accept-package-agreements
-<# Importing the OS #>
-Write-Host "`tImporting the OS from C:\temporary to C:\TIMSCDR-Ubuntu-20.04`n" -ForegroundColor Yellow
-wsl --import TIMSCDR-Ubuntu-20.04 C:\TIMSCDR-Ubuntu-20.04 C:\temporary\TIMSCDR-Ubuntu-20.04.tar
-
-<# Making sure windows terminal profile creation is accurate#>
-Copy-Item "C:\Users\$env:USERNAME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" "C:\Users\$env:USERNAME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json.bak"
-Copy-Item ./settings.json "C:\Users\$env:USERNAME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
-
-<# Launching ns-3.32_Ubuntu-20.04 #>
-Write-Host "`nThe sudo password is mca@123. Refer the readme for additional information" -ForegroundColor Yellow
-Write-Host "`nYou can delete the C:\temporary folder after launching Ubuntu." -ForegroundColor Yellow
-$choice1 = Read-Host -Prompt " Ready to simulate networks? Press y then enter(y/n)"
-if ($choice1 -eq 'y') {
-wt -p "TIMSCDR-Ubuntu-20.04"
-    }
-}
