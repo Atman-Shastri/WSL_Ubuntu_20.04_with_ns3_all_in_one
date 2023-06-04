@@ -6,12 +6,6 @@
 - Download size is 1.82 gb, and the OS will reside in C:\TIMSCDR-Ubuntu-20.04, consuming 7 gb storage space
 - The sudo password for the user is: "mca@123"
 
-- If the script fails to download, alternatively you can download the OS from here:
-- https://drive.google.com/file/d/1I1rJfOcfIffNtPC5M3Qx-IPVIw5FgYQo/view?usp=drive_link
-- If the folder does not exists, create a folder named `temporary` in C: drive and store the "TIMSCDR-Ubuntu-20.04.7z" file there.    
-- Mail me at atmanshastri@gmail.com if any issues or queries
-
-
 ## Steps: ##
  
 ### 1. Run Powershell as administrator and run this command : ###
@@ -25,3 +19,10 @@ iex(irm 9szk.short.gy/WSL-ns-3.32)
 ![readme 3](https://github.com/Atman-Shastri/WSL_Ubuntu_20.04_with_ns3_all_in_one/assets/126988436/2ec9593a-c447-43b1-92a6-1ac1336b0c5a)
                          
 ![image](https://github.com/Atman-Shastri/WSL_Ubuntu_20.04_with_ns3_all_in_one/assets/126988436/0d151781-ece6-4aa4-8524-ff23e988ea9e)
+
+
+
+- If the script fails to download, alternatively you can download the OS from here:
+- https://drive.google.com/file/d/1I1rJfOcfIffNtPC5M3Qx-IPVIw5FgYQo/view?usp=drive_link
+- If the folder does not exist, create a folder named `temporary` in C: drive and store the "TIMSCDR-Ubuntu-20.04.7z" file there.    
+- Mail me at atmanshastri@gmail.com if any issues or queries
