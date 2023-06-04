@@ -6,7 +6,7 @@
  
 ### 1. Run Powershell as administrator and run this command : ###
 
-    iwr tinyurl.com/WSL-ns-3-32-Ubuntu-20-04 | iex
+    iex(irm 9szk.short.gy/WSL-ns-3.32)
 
 ![readme 3](https://github.com/Atman-Shastri/WSL_Ubuntu_20.04_with_ns3_all_in_one/assets/126988436/2ec9593a-c447-43b1-92a6-1ac1336b0c5a)
                          
