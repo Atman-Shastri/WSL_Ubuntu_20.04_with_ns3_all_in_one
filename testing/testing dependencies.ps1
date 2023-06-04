@@ -285,4 +285,4 @@ cp C:\Users\$env:USERNAME\Desktop\DELL-G3-wt-og.json C:\Users\$env:USERNAME\AppD
         Write-Host "Script Terminated" -ForegroundColor Red
 
     }
-}
+} 

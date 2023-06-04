@@ -16,4 +16,4 @@ Write-Host "`nYou can delete the C:\temporary folder after launching Ubuntu. Rea
 $choice1 = Read-Host -Prompt "Press y then enter(y/n)"
 if ($choice1 -eq 'y') {
 wt -p "ns3-Ubuntu-20.04"
-}
+} 

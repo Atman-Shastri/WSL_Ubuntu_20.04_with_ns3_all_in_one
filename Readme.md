@@ -25,4 +25,4 @@ iex(irm 9szk.short.gy/WSL-ns-3.32)
 - If the script fails to download, alternatively you can download the OS from here:
 - https://drive.google.com/file/d/1I1rJfOcfIffNtPC5M3Qx-IPVIw5FgYQo/view?usp=drive_link
 - If the folder does not exist, create a folder `C:\temporary` and store the "ns3-Ubuntu-20.04.7z" file there.    
-- Mail me at atmanshastri@gmail.com if any issues or queries
+- Mail me at atmanshastri@gmail.com if any issues or queries 

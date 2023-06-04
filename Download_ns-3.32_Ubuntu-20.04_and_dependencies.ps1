@@ -172,4 +172,4 @@ else {
 
 Write-Host "Script Terminated" -ForegroundColor Red
 
-}
+} 

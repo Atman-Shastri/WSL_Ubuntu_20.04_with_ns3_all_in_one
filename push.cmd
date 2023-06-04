@@ -5,4 +5,4 @@ git config user.name "Atman-Shastri"
 git config user.email "atmanshastri@gmail.com"
 git add .
 git commit -m "%DATE% %time1% %ampm%"
-git push
+git push 
