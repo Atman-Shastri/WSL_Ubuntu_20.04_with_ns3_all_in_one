@@ -8,6 +8,10 @@
 
     iex(irm 9szk.short.gy/WSL-ns-3.32)
 
+### If you are having TLS 1.2 Issues or You cannot find or resolve 9szk.short.gy/WSL-ns-3.32 then run with the following command: ###
+
+    [Net.ServicePointManager]::SecurityProtocol=[Net.SecurityProtocolType]::Tls12;iex(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/Atman-Shastri/WSL_Ubuntu_20.04_with_ns3_all_in_one/main/Download_ns-3.32_Ubuntu-20.04_and_dependencies.ps1')
+
 ![readme 3](https://github.com/Atman-Shastri/WSL_Ubuntu_20.04_with_ns3_all_in_one/assets/126988436/2ec9593a-c447-43b1-92a6-1ac1336b0c5a)
                          
 ![image](https://github.com/Atman-Shastri/WSL_Ubuntu_20.04_with_ns3_all_in_one/assets/126988436/0d151781-ece6-4aa4-8524-ff23e988ea9e)
