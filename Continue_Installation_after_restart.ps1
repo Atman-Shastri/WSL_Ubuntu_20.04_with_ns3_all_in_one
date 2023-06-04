@@ -3,9 +3,9 @@ $taskName = "RunAfterLogin"
 Unregister-ScheduledTask -TaskName $taskName -Confirm:$false
 
 <# Importing the OS #>
-Write-Host "`tImporting the OS from C:\temporary to C:\TIMSCDR-Ubuntu-20.04`n" -ForegroundColor Yellow
+Write-Host "`tImporting the OS from C:\temporary to C:\ns3-Ubuntu-20.04`n" -ForegroundColor Yellow
 Write-Host "`tThis can take about 10-15 minutes, please be patient`n" -ForegroundColor Yellow
-wsl --import TIMSCDR-Ubuntu-20.04 C:\TIMSCDR-Ubuntu-20.04 C:\temporary\TIMSCDR-Ubuntu-20.04.tar
+wsl --import ns3-Ubuntu-20.04 C:\ns3-Ubuntu-20.04 C:\temporary\ns3-Ubuntu-20.04.tar
 
 # Starting Windows Terminal for Profile Creation #
 Start-Process wt
@@ -30,5 +30,5 @@ Write-Host "`nThe sudo password is mca@123. Refer the readme for additional info
 Write-Host "`nYou can delete the C:\temporary folder after launching Ubuntu. Ready to simulate networks?" -ForegroundColor Yellow
 $choice1 = Read-Host -Prompt "Press y then enter(y/n)"
 if ($choice1 -eq 'y') {
-wt -p "TIMSCDR-Ubuntu-20.04"
+wt -p "ns3-Ubuntu-20.04"
 }

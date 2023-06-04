@@ -1,5 +1,5 @@
 # This script downloads Ubuntu 20.04 with pre-installed programs related to networking with linux (MCA Program course 22-24) #
-# (includes ns3-allinone and tracemetrics) #
+# (includes ns3.32-allinone and tracemetrics) #
 Write-Host "`t!!!  READ THIS FIRST !!!" -ForegroundColor Red -BackgroundColor White
 Write-Host "`tSave and close any other programs because system will be restarted to continue with the Ubuntu Installation" -ForegroundColor Red -BackgroundColor White
 Write-Host "`tThis script downloads and installs all required files and dependencies for Windows Subsystem for Linux" -ForegroundColor Red -BackgroundColor White
@@ -7,7 +7,7 @@ $choice1 = Read-Host -Prompt "Press y then enter after you read the above displa
 
 if($choice1 -eq 'y'){
 
-<# Downloading TIMSCDR Ubuntu WSL machine #>
+<# Downloading ns3 Ubuntu WSL machine #>
 
 # Creating script's working directory #        
 $trashVar = mkdir -OutVariable output C:\temporary\
@@ -49,18 +49,18 @@ $wtProcessId = $wtProcess.Id
 Stop-Process -Id $wtProcessId
 
 
-Write-Host "`n`tDownload size is 1.82 gb, and the OS will reside in C:\TIMSCDR-Ubuntu-20.04, consuming 7 gb storage space" -ForegroundColor Yellow
+Write-Host "`n`tDownload size is 1.82 gb, and the OS will reside in C:\ns3-Ubuntu-20.04, consuming 7 gb storage space" -ForegroundColor Yellow
 Write-Host "`n`tYou can download it manually from here in case the script fails to download the OS" -ForegroundColor Yellow
 Write-Host "`n`thttps://drive.google.com/file/d/1I1rJfOcfIffNtPC5M3Qx-IPVIw5FgYQo/view?usp=drive_link`n" -ForegroundColor Yellow
 
 
-# Downloading TIMSCDR-Ubuntu-20-04.7z to C:\temporary folder" #
+# Downloading ns3-Ubuntu-20-04.7z to C:\temporary folder" #
 Write-Host "`tDownloading the ns3.32-Ubuntu-20.04 from OneDrive`n" -ForegroundColor Yellow
-C:\temporary\wget.exe  -t 0 -O "C:\temporary\TIMSCDR-Ubuntu-20.04.7z" "https://ktokpa.sn.files.1drv.com/y4meXurSB3sCLcGjmCoWxCa2sQkgUtmQkuJ5iAbYwilWi_JCnSDMl3-0N73vDm9PoOgWu5JPzm7vAgBiUKobniW4eDKciHO9c7YMJb2dhPaVUS-h00k4xc5Cfe_8gYK20WvSwlIsofXUtbNdGBITTeNjD7H-8e47JkGlPg7mLIgxwcbw48z7yWZkIi2_KWmYhZ_sjHMAY9pb27nIZZ1deZHZA"
+C:\temporary\wget.exe  -t 0 -O "C:\temporary\ns3-Ubuntu-20.04.7z" "https://ktokpa.sn.files.1drv.com/y4meXurSB3sCLcGjmCoWxCa2sQkgUtmQkuJ5iAbYwilWi_JCnSDMl3-0N73vDm9PoOgWu5JPzm7vAgBiUKobniW4eDKciHO9c7YMJb2dhPaVUS-h00k4xc5Cfe_8gYK20WvSwlIsofXUtbNdGBITTeNjD7H-8e47JkGlPg7mLIgxwcbw48z7yWZkIi2_KWmYhZ_sjHMAY9pb27nIZZ1deZHZA"
 
-# Extracting TIMSCDR-Ubuntu-20.04.7z to the C:\temporary #
+# Extracting ns3-Ubuntu-20.04.7z to the C:\temporary #
 Write-Host "`tExtracting the download to C:\temporary`n" -ForegroundColor Yellow
-C:\temporary\7zr.exe x "C:\temporary\TIMSCDR-Ubuntu-20.04.7z" -o"C:\temporary" -y
+C:\temporary\7zr.exe x "C:\temporary\ns3-Ubuntu-20.04.7z" -o"C:\temporary" -y
 
 
 <# Checking and enabling pre-requisites (WSL and Virtual Machine Platform) #>
@@ -79,9 +79,9 @@ $jsonFilePath = "C:\Users\$env:USERNAME\AppData\Local\Packages\Microsoft.Windows
 
 # Text to append
 $newProfile = @{
-    "name"              = "TIMSCDR-Ubuntu-20.04";
+    "name"              = "ns3-Ubuntu-20.04";
     "colorScheme"       = "Ubuntu-ColorScheme";
-    "commandline"       = "wsl.exe -d TIMSCDR-Ubuntu-20.04";
+    "commandline"       = "wsl.exe -d ns3-Ubuntu-20.04";
     "startingDirectory" = "~";
     "icon"              = "ms-appx:///ProfileIcons/{9acb9455-ca41-5af7-950f-6bca1bc9722f}.png";
 }

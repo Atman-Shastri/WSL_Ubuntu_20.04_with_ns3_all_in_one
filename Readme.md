@@ -3,7 +3,7 @@
 #### Automating WSL installation, providing Ubuntu 20.04 with pre-installed programs & dependencies related to networking with linux (MCA Program course 22-24) ####
 #### Tested on fresh installs of Windows 11 Pro 22H2 22621.1702 and Windows 10 Home 22H2 19045.2965 ####
 
-- Download size is 1.82 gb, and the OS will reside in C:\TIMSCDR-Ubuntu-20.04, consuming 7 gb storage space
+- Download size is 1.82 gb, and the OS will reside in C:\ns3-Ubuntu-20.04, consuming 7 gb storage space
 - The sudo password for the user is: "mca@123"
 
 ## Steps: ##
@@ -24,5 +24,5 @@ iex(irm 9szk.short.gy/WSL-ns-3.32)
 
 - If the script fails to download, alternatively you can download the OS from here:
 - https://drive.google.com/file/d/1I1rJfOcfIffNtPC5M3Qx-IPVIw5FgYQo/view?usp=drive_link
-- If the folder does not exist, create a folder named `temporary` in C: drive and store the "TIMSCDR-Ubuntu-20.04.7z" file there.    
+- If the folder does not exist, create a folder named `temporary` in C: drive and store the "ns3-Ubuntu-20.04.7z" file there.    
 - Mail me at atmanshastri@gmail.com if any issues or queries
