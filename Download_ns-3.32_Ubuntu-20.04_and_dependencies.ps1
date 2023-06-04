@@ -141,7 +141,7 @@ $username = $currentUser.Name.Split("\")[1]
 
 # Define the script command to run after login
 $command = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
-$arguments = "iex ((New-Object System.Net.WebClient).DownloadString('https://tinyurl.com/WSL-ns-3-32-continued'))"
+$arguments = "iex(irm raw.githubusercontent.com/Atman-Shastri/WSL_Ubuntu_20.04_with_ns3_all_in_one/main/Continue_Installation_after_restart.ps1)"
 # Create a scheduled task action to run the command
 $action = New-ScheduledTaskAction -Execute $command -Argument $arguments
 
