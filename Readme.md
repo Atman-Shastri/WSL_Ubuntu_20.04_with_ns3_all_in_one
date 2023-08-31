@@ -21,8 +21,4 @@ iex(irm 9szk.short.gy/WSL-ns-3.32)
 ![image](https://github.com/Atman-Shastri/WSL_Ubuntu_20.04_with_ns3_all_in_one/assets/126988436/0d151781-ece6-4aa4-8524-ff23e988ea9e)
 
 
-
-- If the script fails to download, alternatively you can download the OS from here:
-- https://drive.google.com/file/d/1I1rJfOcfIffNtPC5M3Qx-IPVIw5FgYQo/view?usp=drive_link
-- If the folder does not exist, create a folder `C:\temporary` and store the "ns3-Ubuntu-20.04.7z" file there.    
 - Mail me at atmanshastri@gmail.com if any issues or queries 
