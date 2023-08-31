@@ -50,8 +50,6 @@ Stop-Process -Id $wtProcessId
 
 
 Write-Host "`n`tDownload size is 1.82 gb, and the OS will reside in C:\ns3-Ubuntu-20.04, consuming 7 gb storage space" -ForegroundColor Yellow
-Write-Host "`n`tYou can download it manually from here in case the script fails to download the OS" -ForegroundColor Yellow
-Write-Host "`n`thttps://drive.google.com/file/d/1I1rJfOcfIffNtPC5M3Qx-IPVIw5FgYQo/view?usp=drive_link`n" -ForegroundColor Yellow
 
 
 # Downloading ns3-Ubuntu-20-04.7z to C:\temporary folder" #
