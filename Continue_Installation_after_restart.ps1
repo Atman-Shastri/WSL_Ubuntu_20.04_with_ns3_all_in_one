@@ -5,7 +5,7 @@ Unregister-ScheduledTask -TaskName $taskName -Confirm:$false
 <# Importing the OS #>
 Write-Host "`tImporting the OS from C:\temporary to C:\ns3-Ubuntu-20.04`n" -ForegroundColor Yellow
 Write-Host "`tThis can take about 10-15 minutes, please be patient`n" -ForegroundColor Yellow
-wsl --import ns3-Ubuntu-20.04 C:\ns3-Ubuntu-20.04 C:\temporary\ns3-Ubuntu-20.04.tar
+wsl --import ns3-Ubuntu-20.04 C:\ns3-Ubuntu-20.04 C:\temporary\TIMSCDR-Ubuntu-20.04
 
 # Starting Windows Terminal for Profile Creation #
 Start-Process wt -WindowStyle Hidden
