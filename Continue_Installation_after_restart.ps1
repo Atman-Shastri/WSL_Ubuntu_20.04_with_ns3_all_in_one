@@ -8,18 +8,7 @@ Write-Host "`tThis can take about 10-15 minutes, please be patient`n" -Foregroun
 wsl --import ns3-Ubuntu-20.04 C:\ns3-Ubuntu-20.04 C:\temporary\ns3-Ubuntu-20.04.tar
 
 # Starting Windows Terminal for Profile Creation #
-Start-Process wt
-
-# Waiting for 2 seconds
-Start-Sleep -Seconds 2
-
-# Finding the process ID for Windows Terminal
-$wtProcess = Get-Process | Where-Object { $_.Path -like '*WindowsTerminal.exe' }
-$wtProcessId = $wtProcess.Id
-
-# Stopping Windows Terminal using the process ID
-Stop-Process -Id $wtProcessId
-
+Start-Process wt -WindowStyle Hidden
 
 <# Making sure windows terminal profile creation is accurate#>
 Copy-Item "C:\Users\$env:USERNAME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" "C:\Users\$env:USERNAME\AppData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json.bak"
