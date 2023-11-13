@@ -117,6 +117,7 @@ Enable-WindowsOptionalFeature -featureName "Microsoft-Windows-Subsystem-Linux" -
 Enable-WindowsOptionalFeature -featureName "VirtualMachinePlatform" -message "Virtual Machine Platform"
 
 <# Installing WSL #>
+<#
 Write-Host "`tInstalling WSL`n" -ForegroundColor Yellow
 $wingetCommand = Get-Command -Name 'winget' -ErrorAction SilentlyContinue
 
@@ -137,7 +138,7 @@ else {
         winget install --id $packageId --accept-package-agreements
     }
 }
-
+#>
 <# Creating a scheduled task to continue the script #>
 # Getting the current user's domain and username
 $currentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent()
