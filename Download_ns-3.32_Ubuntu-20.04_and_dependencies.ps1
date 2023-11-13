@@ -78,16 +78,11 @@ $directoryPath = "C:\temporary"
 $fileName = "ns3-Ubuntu-20.04.7z"
 $fileExists = Test-Path -Path (Join-Path $directoryPath $fileName)
 if (-not $fileExists) {
-    # Execute this code if the file doesn't exist
-    Write-Host "File does not exist. Proceeding with the code."
-
-    # Downloading ns3-Ubuntu-20-04.7z to C:\temporary folder" #
+     # Downloading ns3-Ubuntu-20-04.7z to C:\temporary folder" #
 Write-Host "`tDownloading the ns3.32-Ubuntu-20.04 from OneDrive`n" -ForegroundColor Yellow
 C:\temporary\wget.exe  -t 0 -O "C:\temporary\ns3-Ubuntu-20.04.7z" "https://ktokpa.sn.files.1drv.com/y4meXurSB3sCLcGjmCoWxCa2sQkgUtmQkuJ5iAbYwilWi_JCnSDMl3-0N73vDm9PoOgWu5JPzm7vAgBiUKobniW4eDKciHO9c7YMJb2dhPaVUS-h00k4xc5Cfe_8gYK20WvSwlIsofXUtbNdGBITTeNjD7H-8e47JkGlPg7mLIgxwcbw48z7yWZkIi2_KWmYhZ_sjHMAY9pb27nIZZ1deZHZA"
-
 }
 else {
-    # Execute this code if the file exists
     Write-Host "File already exists."
 }
 
@@ -98,7 +93,6 @@ if (-not $fileExists) {
 Write-Host "`tExtracting the download to C:\temporary`n" -ForegroundColor Yellow
 C:\temporary\7zr.exe x "C:\temporary\ns3-Ubuntu-20.04.7z" -o"C:\temporary" -y
 }else {
-    # Execute this code if the file exists
     Write-Host "File already exists."
 }
 
@@ -145,21 +139,21 @@ else {
 }
 
 <# Creating a scheduled task to continue the script #>
-# Get the current user's domain and username
+# Getting the current user's domain and username
 $currentUser = [System.Security.Principal.WindowsIdentity]::GetCurrent()
 $domain = $currentUser.Name.Split("\")[0]
 $username = $currentUser.Name.Split("\")[1]
 
-# Define the script command to run after login
+# Defining the script command to run after login
 $command = "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
 $arguments = "iex(irm raw.githubusercontent.com/Atman-Shastri/WSL_Ubuntu_20.04_with_ns3_all_in_one/main/Continue_Installation_after_restart.ps1)"
 # Create a scheduled task action to run the command
 $action = New-ScheduledTaskAction -Execute $command -Argument $arguments
 
-# Create a trigger for the scheduled task (logon event)
+# Creating a trigger for the scheduled task (logon event)
 $trigger = New-ScheduledTaskTrigger -AtLogOn
 
-# Create the scheduled task
+# Creating the scheduled task
 $taskParams = @{
     TaskName = "RunAfterLogin"
     Action = $action
